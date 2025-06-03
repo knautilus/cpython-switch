@@ -34,7 +34,7 @@ ls
 rm -r test
 rm -r lib2to3/tests
 rm subprocess.py
-cp ../subprocess.py ./
+cp ../stub/subprocess.py ./
 find . -type l -not -name \*.py -delete
 find . -type d -empty -delete
 find . -name \*.py -exec python3 -OO -m py_compile {} \;
