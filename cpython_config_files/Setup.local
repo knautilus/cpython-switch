@@ -18,5 +18,3 @@ _sha512 sha512module.c
 
 # websockets
 _socket socketmodule.c
-
-posix posixmodule.c        # posix (UNIX) system calls

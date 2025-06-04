@@ -107,15 +107,34 @@ diff -Naur a/Modules/posixmodule.c b/Modules/posixmodule.c
  #    ifndef __VXWORKS__
  #      define HAVE_EXECV      1
  #      define HAVE_FORK       1
-@@ -329,6 +330,7 @@ corresponding Unix manual entries for more information on calls.");
+@@ -329,6 +330,26 @@ corresponding Unix manual entries for more information on calls.");
  #    define HAVE_SYSTEM     1
  #    define HAVE_WAIT       1
  #    define HAVE_TTYNAME    1
++#    else
++#    ifdef HAVE_GETGROUPS
++#      undef HAVE_GETGROUPS
++#    endif
++#    ifdef HAVE_SETGROUPS
++#      undef HAVE_SETGROUPS
++#    endif
++#    ifdef HAVE_SYMLINK
++#      undef HAVE_SYMLINK
++#    endif
++#    ifdef HAVE_CHROOT
++#      undef HAVE_CHROOT
++#    endif
++#    ifdef HAVE_FDATASYNC
++#      undef HAVE_FDATASYNC
++#    endif
++#    ifdef HAVE_FCHDIR
++#      undef HAVE_FCHDIR
++#    endif
 +#    endif  /* ! __SWITCH__ */
  #  endif  /* _MSC_VER */
  #endif  /* ! __WATCOMC__ || __QNX__ */
  
-@@ -4753,6 +4755,7 @@ os_system_impl(PyObject *module, PyObject *command)
+@@ -4753,6 +4774,7 @@ os_system_impl(PyObject *module, PyObject *command)
  #endif /* HAVE_SYSTEM */
  
  
@@ -123,7 +142,7 @@ diff -Naur a/Modules/posixmodule.c b/Modules/posixmodule.c
  /*[clinic input]
  os.umask
  
-@@ -4771,6 +4774,7 @@ os_umask_impl(PyObject *module, int mask)
+@@ -4771,6 +4793,7 @@ os_umask_impl(PyObject *module, int mask)
          return posix_error();
      return PyLong_FromLong((long)i);
  }
