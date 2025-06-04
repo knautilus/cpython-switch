@@ -23,10 +23,9 @@ popd
 
 mkdir -p ./python39-switch
 
-cp -r $LOCAL_PREFIX/. ./python39-switch
+mv $LOCAL_PREFIX/* ./python39-switch/
 
 pushd python39-switch
-echo("== python39-switch ==")
 ls
 rm -r test
 rm -r lib2to3/tests
