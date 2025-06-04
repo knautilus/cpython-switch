@@ -2,8 +2,6 @@ set -e
 
 export DEVKITPRO=/opt/devkitpro
 
-export PREFIXARCHIVE=$(realpath python39-switch.tar.gz)
-
 source $DEVKITPRO/switchvars.sh
 pushd cpython
 mkdir build-switch
@@ -23,13 +21,12 @@ make inclinstall
 popd
 popd
 
-#tar -czvf $PREFIXARCHIVE -C $LOCAL_PREFIX .
+mkdir -p ./python39-switch
 
-mkdir -p ./raw
-cp $LOCAL_PREFIX/. ./raw
+cp -r $LOCAL_PREFIX/. ./python39-switch
 
-pushd raw
-echo("== raw ==")
+pushd python39-switch
+echo("== python39-switch ==")
 ls
 rm -r test
 rm -r lib2to3/tests

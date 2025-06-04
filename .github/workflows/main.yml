@@ -23,8 +23,8 @@ jobs:
         - name: build
           run: sudo bash build.bash
 
-        - name: upload raw
+        - name: upload python39-switch
           uses: actions/upload-artifact@master
           with:
-            name: raw
-            path: raw
+            name: python39-switch
+            path: python39-switch
