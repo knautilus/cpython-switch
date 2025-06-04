@@ -25,12 +25,11 @@ mkdir -p ./python39-switch
 
 mv $LOCAL_PREFIX/* ./python39-switch/
 
-pushd python39-switch
-ls
+pushd python39-switch/lib/python3.9
 rm -r test
 rm -r lib2to3/tests
 rm subprocess.py
-cp ../stub/subprocess.py ./
+cp ../../../stub/subprocess.py ./
 find . -type l -not -name \*.py -delete
 find . -type d -empty -delete
 find . -name \*.py -exec python3 -OO -m py_compile {} \;
