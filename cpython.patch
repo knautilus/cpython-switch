@@ -1,16 +1,16 @@
 diff -Naur a/Lib/posixpath.py b/Lib/posixpath.py
 --- a/Lib/posixpath.py
 +++ b/Lib/posixpath.py
-@@ -59,6 +59,9 @@ def normcase(s):
- 
+@@ -60,6 +60,9 @@ def normcase(s):
  def isabs(s):
      """Test whether a path is absolute"""
+     s = os.fspath(s)
 +    if sys.platform == 'horizon':
 +        i = s.find('/', 0)
 +        return (i != -1 and i != 0) and s[i - 1] == ':'
-     s = os.fspath(s)
      sep = _get_sep(s)
      return s.startswith(sep)
+ 
 @@ -86,6 +89,10 @@ def join(a, *p):
                  path += b
              else:
