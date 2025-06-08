@@ -5,8 +5,8 @@ on: [push]
 jobs:
     build-artifact:
         name: Build
-        runs-on: ubuntu-latest
-        container: devkitpro/devkita64:20241023
+        runs-on: ubuntu-24.04
+        container: devkitpro/devkita64:20230910
 
         steps:
         - name: Check for dockerenv file
@@ -23,8 +23,8 @@ jobs:
         - name: build
           run: sudo bash build.bash
 
-        - name: upload python39-switch
+        - name: upload python27-switch
           uses: actions/upload-artifact@master
           with:
-            name: python39-switch
-            path: python39-switch
+            name: python27-switch
+            path: python27-switch
