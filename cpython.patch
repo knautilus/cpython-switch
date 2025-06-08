@@ -18,7 +18,7 @@ diff -Naur a/Lib/posixpath.py b/Lib/posixpath.py
 +        if sys.platform == 'horizon':
 +            i = b.find('/', 0)
 +            if (i != -1 and i != 0) and b[i - 1] == ':':
-+                path = b            
++                path = b
      except (TypeError, AttributeError, BytesWarning):
          genericpath._check_arg_types('join', a, *p)
          raise
