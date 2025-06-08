@@ -55,7 +55,6 @@ posix posixmodule.c        # posix (UNIX) system calls
 unicodedata unicodedata.c    # static Unicode character database
 xx xxmodule.c
 xxsubtype xxsubtype.c
-zipimport zipimport.c
 
 # The following will not build, but is specified in renpy-build:
 # _ctypes _ctypes/_ctypes.c _ctypes/callbacks.c _ctypes/callproc.c _ctypes/stgdict.c _ctypes/cfield.c -lffi
