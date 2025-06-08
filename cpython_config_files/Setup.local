@@ -52,8 +52,6 @@ errno errnomodule.c        # posix (UNIX) errno values
 fcntl fcntlmodule.c    # fcntl(2) and ioctl(2)
 parser parsermodule.c
 posix posixmodule.c        # posix (UNIX) system calls
-strop stropmodule.c        # String manipulations
-timing timingmodule.c
 unicodedata unicodedata.c    # static Unicode character database
 xx xxmodule.c
 xxsubtype xxsubtype.c
