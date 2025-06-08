@@ -16,7 +16,7 @@ _random _randommodule.c
 _functools _functoolsmodule.c
 _datetime _datetimemodule.c
 zlib zlibmodule.c -I$(prefix)/include -L$(exec_prefix)/lib -lz
-_md5 md5module.c md5.c
+_md5 md5module.c
 array arraymodule.c
 
 # avoid warnings from hashlib module
