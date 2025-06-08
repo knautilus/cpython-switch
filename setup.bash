@@ -12,17 +12,19 @@ apt -y install libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev lib
 
 apt -y install python2 python2-dev
 
+python2 --version
+
 curl https://bootstrap.pypa.io/pip/2.7/get-pip.py --output get-pip.py
 python2 get-pip.py
-pip2 --version 
+pip2 --version
 
 apt-get -y install p7zip-full libsdl2-dev libsdl2-image-dev libjpeg-dev libpng-dev libsdl2-ttf-dev libsdl2-mixer-dev libavformat-dev libfreetype6-dev libswscale-dev libglew-dev libfribidi-dev libavcodec-dev  libswresample-dev libsdl2-gfx-dev libgl1-mesa-glx
 pip2 uninstall distribute
 pip2 install future six typing requests ecdsa pefile==2019.4.18 Cython==0.29.36 setuptools==0.9.8
 
-python2 --version
-
 apt -y install build-essential checkinstall
+
+dkp-pacman -S devkitpro-pkgbuild-helpers
 
 git clone --branch v2.7.16 --single-branch https://github.com/python/cpython.git
 
