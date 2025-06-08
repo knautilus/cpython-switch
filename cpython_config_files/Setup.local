@@ -4,13 +4,12 @@
 binascii binascii.c
 _struct _struct.c
 _collections _collectionsmodule.c
-operator operator.c
+_operator _operator.c
 itertools itertoolsmodule.c
 time timemodule.c
 math mathmodule.c _math.c
 
 # Ren'Py deps:
-cStringIO cStringIO.c
 _pickle _pickle.c
 _io -I$(srcdir)/Modules/_io _io/bufferedio.c _io/bytesio.c _io/fileio.c _io/iobase.c _io/_iomodule.c _io/stringio.c _io/textio.c
 _random _randommodule.c
