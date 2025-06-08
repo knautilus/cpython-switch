@@ -184,24 +184,6 @@ index 61b8d612a4..ea18e5a2d6 100644
  #else /* !HAVE_TZNAME || __GLIBC__ || __CYGWIN__*/
  #ifdef HAVE_STRUCT_TM_TM_ZONE
      {
-diff --git a/Python/import.c b/Python/import.c
-index b79354b37a..f963275a59 100644
---- a/Python/import.c
-+++ b/Python/import.c
-@@ -1402,6 +1402,13 @@ find_module(char *fullname, char *subname, PyObject *path, char *buf,
-         Py_DECREF(meta_path);
-     }
- 
-+    // printf("PATCH: find_module(%s)\n", fullname);
-+    if (fullname != NULL && is_builtin(fullname)) {
-+      // printf("PATCH: submodule %s is built-in!\n", fullname);
-+      strcpy(buf, fullname);
-+      return &fd_builtin;
-+    }
-+
-     if (path != NULL && PyString_Check(path)) {
-         /* The only type of submodule allowed inside a "frozen"
-            package are other frozen modules or packages. */
 diff --git a/Python/random.c b/Python/random.c
 index 000cb36938..c710ba95ea 100644
 --- a/Python/random.c
