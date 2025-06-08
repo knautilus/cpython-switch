@@ -40,10 +40,10 @@ _json _json.c
 _locale _localemodule.c  # -lintl
 _lsprof _lsprof.c rotatingtree.c
 _multibytecodec cjkcodecs/multibytecodec.c
-_socket socketmodule.c timemodule.c -lm
+_socket socketmodule.c
 _sre _sre.c            # Fredrik Lundh's new regular expressions
 _symtable symtablemodule.c
-_testcapi _testcapimodule.c    # Python C API test module
+#_testcapi _testcapimodule.c    # Python C API test module
 _weakref _weakref.c             # weak references
 audioop audioop.c
 bz2 bz2module.c -lbz2
