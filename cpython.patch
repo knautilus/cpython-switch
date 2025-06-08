@@ -68,7 +68,7 @@ diff --git a/Modules/_hotshot.c b/Modules/_hotshot.c
 index 4fc5cee479..57573a2588 100644
 --- a/Modules/_hotshot.c
 +++ b/Modules/_hotshot.c
-@@ -934,7 +934,7 @@ calibrate(void)
+@@ -931,7 +931,7 @@ calibrate(void)
  #endif
      }
  #if defined(MS_WINDOWS) || defined(PYOS_OS2) || \
