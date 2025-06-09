@@ -46,7 +46,7 @@ _symtable symtablemodule.c
 #_testcapi _testcapimodule.c    # Python C API test module
 _weakref _weakref.c             # weak references
 audioop audioop.c
-bz2 _bz2module.c -lbz2 # ???
+#bz2 _bz2module.c -lbz2 # ???
 cmath cmathmodule.c _math.c # -lm # complex math library functions
 errno errnomodule.c        # posix (UNIX) errno values
 fcntl fcntlmodule.c    # fcntl(2) and ioctl(2)
