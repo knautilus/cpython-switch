@@ -282,15 +282,15 @@ diff -Naur a/Python/bootstrap_hash.c b/Python/bootstrap_hash.c
 diff -Naur a/Python/pythonrun.c b/Python/pythonrun.c
 --- a/Python/pythonrun.c
 +++ b/Python/pythonrun.c
-@@ -1448,6 +1448,8 @@ PyParser_ASTFromStringObject(const char *s, PyObject *filename, int start,
-     if (flags && (flags->cf_flags & PyCF_ONLY_AST) && flags->cf_feature_version < 7)
-         iflags |= PyPARSE_ASYNC_HACKS;
- 
-+    return NULL; // debug
-+
+@@ -1451,6 +1451,8 @@ PyParser_ASTFromStringObject(const char *s, PyObject *filename, int start,
      node *n = PyParser_ParseStringObject(s, filename,
                                           &_PyParser_Grammar, start, &err,
                                           &iflags);
++    return NULL; // debug
++
+     if (flags == NULL) {
+         flags = &localflags;
+     }
 diff -Naur a/Python/thread_pthread.h b/Python/thread_pthread.h
 --- a/Python/thread_pthread.h
 +++ b/Python/thread_pthread.h
