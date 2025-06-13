@@ -282,18 +282,15 @@ diff -Naur a/Python/bootstrap_hash.c b/Python/bootstrap_hash.c
 diff -Naur a/Python/pythonrun.c b/Python/pythonrun.c
 --- a/Python/pythonrun.c
 +++ b/Python/pythonrun.c
-@@ -1099,9 +1099,11 @@ PyRun_StringFlags(const char *str, int start, PyObject *globals,
+@@ -1448,6 +1448,8 @@ PyParser_ASTFromStringObject(const char *s, PyObject *filename, int start,
+     if (flags && (flags->cf_flags & PyCF_ONLY_AST) && flags->cf_feature_version < 7)
+         iflags |= PyPARSE_ASYNC_HACKS;
  
-     if (use_peg) {
-         mod = PyPegen_ASTFromStringObject(str, filename, start, flags, arena);
-+        return NULL;
-     }
-     else {
-         mod = PyParser_ASTFromStringObject(str, filename, start, flags, arena);
-+        return NULL;
-     }
- 
-     if (mod != NULL)
++    return NULL; // debug
++
+     node *n = PyParser_ParseStringObject(s, filename,
+                                          &_PyParser_Grammar, start, &err,
+                                          &iflags);
 diff -Naur a/Python/thread_pthread.h b/Python/thread_pthread.h
 --- a/Python/thread_pthread.h
 +++ b/Python/thread_pthread.h
