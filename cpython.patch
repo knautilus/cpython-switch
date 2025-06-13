@@ -282,15 +282,15 @@ diff -Naur a/Python/bootstrap_hash.c b/Python/bootstrap_hash.c
 diff -Naur a/Python/pythonrun.c b/Python/pythonrun.c
 --- a/Python/pythonrun.c
 +++ b/Python/pythonrun.c
-@@ -1093,6 +1093,8 @@ PyRun_StringFlags(const char *str, int start, PyObject *globals,
-     if (filename == NULL)
-         return NULL;
- 
-+    return NULL; // debug
-+
+@@ -1096,7 +1096,7 @@ PyRun_StringFlags(const char *str, int start, PyObject *globals,
      arena = PyArena_New();
      if (arena == NULL)
          return NULL;
+-
++    return NULL; // debug
+     if (use_peg) {
+         mod = PyPegen_ASTFromStringObject(str, filename, start, flags, arena);
+     }
 diff -Naur a/Python/thread_pthread.h b/Python/thread_pthread.h
 --- a/Python/thread_pthread.h
 +++ b/Python/thread_pthread.h
