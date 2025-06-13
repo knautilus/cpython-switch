@@ -279,6 +279,21 @@ diff -Naur a/Python/bootstrap_hash.c b/Python/bootstrap_hash.c
  #if defined(PY_GETRANDOM) || defined(PY_GETENTROPY)
      if (HAVE_GETENTRYPY_GETRANDOM_RUNTIME) {
  #ifdef PY_GETRANDOM
+diff -Naur a/Python/pythonrun.c b/Python/pythonrun.c
+--- a/Python/pythonrun.c
++++ b/Python/pythonrun.c
+@@ -1099,9 +1099,11 @@ PyRun_StringFlags(const char *str, int start, PyObject *globals,
+ 
+     if (use_peg) {
+         mod = PyPegen_ASTFromStringObject(str, filename, start, flags, arena);
++        return NULL;
+     }
+     else {
+         mod = PyParser_ASTFromStringObject(str, filename, start, flags, arena);
++        return NULL;
+     }
+ 
+     if (mod != NULL)
 diff -Naur a/Python/thread_pthread.h b/Python/thread_pthread.h
 --- a/Python/thread_pthread.h
 +++ b/Python/thread_pthread.h
