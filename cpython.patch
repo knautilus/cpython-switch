@@ -282,14 +282,14 @@ diff -Naur a/Python/bootstrap_hash.c b/Python/bootstrap_hash.c
 diff -Naur a/Python/pyarena.c b/Python/pyarena.c
 --- a/Python/pyarena.c
 +++ b/Python/pyarena.c
-@@ -128,6 +128,7 @@ PyArena *
- PyArena_New()
- {
+@@ -130,7 +130,7 @@ PyArena_New()
      PyArena* arena = (PyArena *)PyMem_Malloc(sizeof(PyArena));
-+    return NULL; // debug
      if (!arena)
          return (PyArena*)PyErr_NoMemory();
- 
++    return NULL; // debug
+     arena->a_head = block_new(DEFAULT_BLOCK_SIZE);
+     arena->a_cur = arena->a_head;
+     if (!arena->a_head) {
 diff -Naur a/Python/thread_pthread.h b/Python/thread_pthread.h
 --- a/Python/thread_pthread.h
 +++ b/Python/thread_pthread.h
