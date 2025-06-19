@@ -289,6 +289,7 @@ diff -Naur a/Python/pyarena.c b/Python/pyarena.c
 +    return NULL; // debug
      if (!arena)
          return (PyArena*)PyErr_NoMemory();
+ 
 diff -Naur a/Python/thread_pthread.h b/Python/thread_pthread.h
 --- a/Python/thread_pthread.h
 +++ b/Python/thread_pthread.h
