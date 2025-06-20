@@ -282,14 +282,24 @@ diff -Naur a/Python/bootstrap_hash.c b/Python/bootstrap_hash.c
 diff -Naur a/Python/pyarena.c b/Python/pyarena.c
 --- a/Python/pyarena.c
 +++ b/Python/pyarena.c
-@@ -137,6 +137,7 @@ PyArena_New()
-         PyMem_Free((void *)arena);
-         return (PyArena*)PyErr_NoMemory();
-     }
+@@ -77,6 +77,7 @@ block_new(size_t size)
+ {
+     /* Allocate header and block as one unit.
+        ab_mem points just past header. */
 +    return NULL; // debug
-     arena->a_objects = PyList_New(0);
-     if (!arena->a_objects) {
-         block_free(arena->a_head);
+     block *b = (block *)PyMem_Malloc(sizeof(block) + size);
+     if (!b)
+         return NULL;
+@@ -132,6 +133,9 @@ PyArena_New()
+         return (PyArena*)PyErr_NoMemory();
+ 
+     arena->a_head = block_new(DEFAULT_BLOCK_SIZE);
++    if (!arena->a_head) { // debug
++        return NULL;
++    }
+     arena->a_cur = arena->a_head;
+     if (!arena->a_head) {
+         PyMem_Free((void *)arena);
 diff -Naur a/Python/thread_pthread.h b/Python/thread_pthread.h
 --- a/Python/thread_pthread.h
 +++ b/Python/thread_pthread.h
