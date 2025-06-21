@@ -279,30 +279,6 @@ diff -Naur a/Python/bootstrap_hash.c b/Python/bootstrap_hash.c
  #if defined(PY_GETRANDOM) || defined(PY_GETENTROPY)
      if (HAVE_GETENTRYPY_GETRANDOM_RUNTIME) {
  #ifdef PY_GETRANDOM
-diff -Naur a/Objects/obmalloc.c b/Objects/obmalloc.c
---- a/Objects/obmalloc.c
-+++ b/Objects/obmalloc.c
-@@ -679,6 +679,7 @@ _PyMem_Strdup(const char *str)
- void *
- PyObject_Malloc(size_t size)
- {
-+    return NULL; // debug
-     /* see PyMem_RawMalloc() */
-     if (size > (size_t)PY_SSIZE_T_MAX)
-         return NULL;
-diff -Naur a/Python/pyarena.c b/Python/pyarena.c
---- a/Python/pyarena.c
-+++ b/Python/pyarena.c
-@@ -132,6 +132,9 @@ PyArena_New()
-         return (PyArena*)PyErr_NoMemory();
- 
-     arena->a_head = block_new(DEFAULT_BLOCK_SIZE);
-+    if (!arena->a_head) { // debug
-+        return NULL;
-+    }
-     arena->a_cur = arena->a_head;
-     if (!arena->a_head) {
-         PyMem_Free((void *)arena);
 diff -Naur a/Python/thread_pthread.h b/Python/thread_pthread.h
 --- a/Python/thread_pthread.h
 +++ b/Python/thread_pthread.h
