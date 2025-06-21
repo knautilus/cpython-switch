@@ -279,6 +279,18 @@ diff -Naur a/Python/bootstrap_hash.c b/Python/bootstrap_hash.c
  #if defined(PY_GETRANDOM) || defined(PY_GETENTROPY)
      if (HAVE_GETENTRYPY_GETRANDOM_RUNTIME) {
  #ifdef PY_GETRANDOM
+diff -Naur a/Python/pyarena.c b/Python/pyarena.c
+--- a/Python/pyarena.c
++++ b/Python/pyarena.c
+@@ -10,7 +10,7 @@
+    allocation?
+ */
+ 
+-#define DEFAULT_BLOCK_SIZE 8192
++#define DEFAULT_BLOCK_SIZE 2344
+ #define ALIGNMENT               8
+ 
+ typedef struct _block {
 diff -Naur a/Python/thread_pthread.h b/Python/thread_pthread.h
 --- a/Python/thread_pthread.h
 +++ b/Python/thread_pthread.h
